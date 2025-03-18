@@ -60,13 +60,14 @@ class LinkedList():
             temp.next = new_node
         
     def remove(self, data):
-        node_removal = Node(data)
-        while node_removal.data != None:
-            if node_removal == self.head:
-                node_removal = self.head
-                node_removal.next = None
+        node_removal = self.head
+        pre_node = None
+        while node_removal:
+            if node_removal.data == data:
+                pre_node.next = node_removal.next
             else:
-                node_removal.next
+                pre_node = node_removal
+                node_removal = node_removal.next
             return print("the node had been removed")
 
 
